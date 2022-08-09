@@ -1,5 +1,4 @@
 FROM python:latest
-WORKDIR /app
-COPY ./app
+COPY ./pyramid.py /pyramid.py
 ENTRYPOINT ["python3", "pyramid.py"]
 CMD ["9"]
