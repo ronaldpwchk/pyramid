@@ -40,7 +40,7 @@ stages:
     - task: PublishPipelineArtifact@1
       inputs:
         artifactName: 'testArtifact'
-        path: 'testArtifact'
+        path: $(build.artifactstagingdirectory)
 
 - stage: Deploy
   displayName: Deploy stage
