@@ -60,13 +60,13 @@ stages:
               artifactName: 'testArtifact'
               downloadPath: '$(System.ArtifactsDirectory)/testArtifact'
 
-          - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              namespace: $(k8sNamespace)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+#          - task: KubernetesManifest@0
+#            displayName: Create imagePullSecret
+#            inputs:
+#              action: createSecret
+#              secretName: $(imagePullSecret)
+#              namespace: $(k8sNamespace)
+#              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
@@ -76,7 +76,7 @@ stages:
               manifests: |
                 $(System.ArtifactsDirectory)/testArtifact/deployment.yml
                 $(System.ArtifactsDirectory)/testArtifact/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
+#              imagePullSecrets: |
+#                $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
