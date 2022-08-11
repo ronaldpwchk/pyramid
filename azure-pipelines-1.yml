@@ -86,4 +86,5 @@ stages:
             inputs:
               action: 'deploy'
               kubernetesServiceConnection: 'testaks1-testaks1-default-1660029044056'
-              manifests: 'kubernete_push_setup.yaml'
+              manifests: $(Build.SourcesDirectory)/kubernete_push_setup.yaml
+#              manifests: 'kubernete_push_setup.yaml'
