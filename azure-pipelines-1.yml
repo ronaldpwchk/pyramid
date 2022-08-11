@@ -74,8 +74,9 @@ stages:
               action: deploy
               namespace: $(k8sNamespace)
               manifests: |
-                $(System.ArtifactsDirectory)/testArtifact/deployment.yml
-                $(System.ArtifactsDirectory)/testArtifact/service.yml
+                 $(System.ArtifactsDirectory)/testArtifact/kubernete_push_setup.yaml
+#                $(System.ArtifactsDirectory)/testArtifact/deployment.yml
+#                $(System.ArtifactsDirectory)/testArtifact/service.yml
 #              imagePullSecrets: |
 #                $(imagePullSecret)
               containers: |
