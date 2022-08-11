@@ -68,16 +68,22 @@ stages:
 #              namespace: $(k8sNamespace)
 #              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
-          - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
-            inputs:
-              action: deploy
-              namespace: $(k8sNamespace)
-              manifests: |
-                 $(System.ArtifactsDirectory)/testArtifact/kubernete_push_setup.yaml
+#          - task: KubernetesManifest@0
+#            displayName: Deploy to Kubernetes cluster
+#            inputs:
+#              action: deploy
+#              namespace: $(k8sNamespace)
+#              manifests: |
+#                 $(System.ArtifactsDirectory)/testArtifact/kubernete_push_setup.yaml
 #                $(System.ArtifactsDirectory)/testArtifact/deployment.yml
 #                $(System.ArtifactsDirectory)/testArtifact/service.yml
 #              imagePullSecrets: |
 #                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+#              containers: |
+#                $(containerRegistry)/$(imageRepository):$(tag)
+
+          - task: KubernetesManifest@0
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: 'testaks1-testaks1-default-1660029044056'
+              manifests: 'kubernete_push_setup.yaml'
