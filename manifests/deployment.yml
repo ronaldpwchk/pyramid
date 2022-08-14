@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: ronaldpwchkpyramid 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ronaldpwchkpyramid
+  template:
+    metadata:
+      labels:
+        app: ronaldpwchkpyramid 
+    spec:
+      containers:
+        - name: ronaldpwchkpyramid 
+          image: ronaldcontest1.azurecr.io/ronaldpwchkpyramid
+          ports:
+          - containerPort: 445
