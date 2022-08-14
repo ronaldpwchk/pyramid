@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: ronaldpwchkpyramid
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 445 
+    selector:
+        app: ronaldpwchkpyramid
