@@ -3,8 +3,9 @@ kind: Service
 metadata:
     name: ronaldpwchkpyramid
 spec:
-    type: LoadBalancer
+    type: ClusterIP
     ports:
-    - port: 445 
+    #- port: 445
+    - port: 80
     selector:
         app: ronaldpwchkpyramid
